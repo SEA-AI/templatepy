@@ -4,8 +4,6 @@ from rich.text import Text
 
 def rich_demo():
     """Demonstrate some cool Rich features"""
-    
-
     console = Console()
 
     # Create styled text
@@ -35,4 +33,4 @@ def rich_demo():
     with console.status("[bold green]Working on something..."):
         import time
         time.sleep(2)
-        console.print("[bold green]Done! ✓")
+        console.print("[bold green]Done! ✓") 
