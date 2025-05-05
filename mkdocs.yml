@@ -54,6 +54,7 @@ nav:
     - MkDocs: playbook/mkdocs.md
     - Testing with pytest: playbook/testing.md
     - GitHub Actions: playbook/github-actions.md
+    - Pre-commit: playbook/pre-commit.md
     - VS Code Settings: playbook/vscode.md
   - API reference: reference/
 
