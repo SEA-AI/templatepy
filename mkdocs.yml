@@ -121,11 +121,7 @@ plugins:
           # paths: [templatepy]  # not needed, we use gen-files plugin
           inventories:
           - https://docs.python.org/3/objects.inv
-          - https://numpy.org/doc/stable/objects.inv
-          - https://onnx.ai/onnx/objects.inv
-          - https://pytorch.org/docs/stable/objects.inv
-          - https://pytorch.org/vision/stable/objects.inv
-          - https://docs.voxel51.com/objects.inv  # not really working :(
+          - https://docs.pydantic.dev/latest/objects.inv
           options:
             docstring_style: "google"
             docstring_options:
