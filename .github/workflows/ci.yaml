@@ -121,7 +121,7 @@ jobs:
       - changed-files
       - ruff-linter
       - ruff-format
-      - pylint
+      # - pylint
     runs-on: ubuntu-latest
     if: ${{ needs.changed-files.outputs.changed_files != '' }}
     steps:
