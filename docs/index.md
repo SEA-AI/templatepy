@@ -1,8 +1,7 @@
-# templatepy
 
-Basic setup when working with python projects
+# Python Development Playbook
 
-Having a standardized playbook helps maintain consistency and quality across projects while reducing setup time. These essential tools and practices will help you write better, more maintainable Python code while ensuring everyone follows the same proven standards.
+Welcome to our Python Development Playbook! Having a standardized playbook helps maintain consistency and quality across projects while reducing setup time. These essential tools and practices will help you write better, more maintainable Python code while ensuring everyone follows the same proven standards.
 
 ## What You'll Learn
 
@@ -15,5 +14,3 @@ Having a standardized playbook helps maintain consistency and quality across pro
 - Automating your workflow with GitHub Actions
 
 Let's dive in and explore these tools and practices that will make your Python development experience more efficient and enjoyable!
-
-[read the docs](https://sea-ai.github.io/templatepy)
