@@ -1,6 +1,4 @@
-"""
-This module demonstrates the use of rich in Python.
-"""
+"""This module demonstrates the use of rich in Python."""
 
 from .demo import rich_demo
 

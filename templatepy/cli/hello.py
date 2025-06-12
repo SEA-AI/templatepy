@@ -1,7 +1,7 @@
-import click
+import click  # noqa: D100
 
 
 @click.command()
-def hello():
-    """Say hello to the world"""
+def hello() -> None:
+    """Say hello to the world."""
     click.echo("Hello, World!")

@@ -1,6 +1,5 @@
 from datetime import datetime
 
-
 from templatepy.demo.dataclass_demo import (
     Address,
     Profile,
