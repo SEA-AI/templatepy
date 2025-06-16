@@ -1,6 +1,4 @@
-"""
-Module for demo code.
-"""
+"""Module for demo code."""
 
 from .rich_demo import rich_demo
 

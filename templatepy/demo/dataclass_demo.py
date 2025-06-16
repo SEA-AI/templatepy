@@ -1,6 +1,4 @@
-"""
-This module demonstrates the use of dataclasses in Python.
-"""
+"""This module demonstrates the use of dataclasses in Python."""
 
 from dataclasses import dataclass, field
 from datetime import datetime

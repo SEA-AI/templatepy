@@ -1,9 +1,10 @@
-from templatepy.demo import rich_demo
 from unittest.mock import patch
+
+from templatepy.demo import rich_demo
 
 
 def test_rich_demo():
-    """Test that rich_demo function runs without errors"""
+    """Test that rich_demo function runs without errors."""
     with patch("rich.console.Console.print") as mock_print:
         rich_demo()
         # Verify that Console.print was called at least once

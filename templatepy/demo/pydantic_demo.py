@@ -1,6 +1,4 @@
-"""
-This module demonstrates the use of pydantic in Python.
-"""
+"""This module demonstrates the use of pydantic in Python."""
 
 from datetime import datetime
 from typing import List, Optional
@@ -47,6 +45,7 @@ class User(UserBase):
     @field_validator("name")
     @classmethod
     def name_must_contain_space(cls, v: str) -> str:
+        """Validate that the name contains a space."""
         if " " not in v:
             raise ValueError("name must contain a space")
         return v.title()

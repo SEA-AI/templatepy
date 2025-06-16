@@ -1,14 +1,12 @@
-"""
-This module demonstrates the use of rich in Python.
-"""
+"""This module demonstrates the use of rich in Python."""
 
 from rich.console import Console
 from rich.panel import Panel
 from rich.text import Text
 
 
-def rich_demo():
-    """Demonstrate some cool Rich features"""
+def rich_demo() -> None:
+    """Demonstrate some cool Rich features."""
     console = Console()
 
     # Create styled text
