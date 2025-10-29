@@ -2,78 +2,78 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://sea-ai.github.io/templatepy/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-10-29</lastmod>
     </url>
     <url>
          <loc>https://sea-ai.github.io/templatepy/includes/abbreviations/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-10-29</lastmod>
     </url>
     <url>
          <loc>https://sea-ai.github.io/templatepy/playbook/github-actions/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-10-29</lastmod>
     </url>
     <url>
          <loc>https://sea-ai.github.io/templatepy/playbook/github-templates/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-10-29</lastmod>
     </url>
     <url>
          <loc>https://sea-ai.github.io/templatepy/playbook/mkdocs/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-10-29</lastmod>
     </url>
     <url>
          <loc>https://sea-ai.github.io/templatepy/playbook/pre-commit/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-10-29</lastmod>
     </url>
     <url>
          <loc>https://sea-ai.github.io/templatepy/playbook/pyproject-toml/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-10-29</lastmod>
     </url>
     <url>
          <loc>https://sea-ai.github.io/templatepy/playbook/ruff/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-10-29</lastmod>
     </url>
     <url>
          <loc>https://sea-ai.github.io/templatepy/playbook/testing/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-10-29</lastmod>
     </url>
     <url>
          <loc>https://sea-ai.github.io/templatepy/playbook/uv/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-10-29</lastmod>
     </url>
     <url>
          <loc>https://sea-ai.github.io/templatepy/playbook/vscode/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-10-29</lastmod>
     </url>
     <url>
          <loc>https://sea-ai.github.io/templatepy/reference/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-10-29</lastmod>
     </url>
     <url>
          <loc>https://sea-ai.github.io/templatepy/reference/SUMMARY/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-10-29</lastmod>
     </url>
     <url>
          <loc>https://sea-ai.github.io/templatepy/reference/cli/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-10-29</lastmod>
     </url>
     <url>
          <loc>https://sea-ai.github.io/templatepy/reference/cli/hello/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-10-29</lastmod>
     </url>
     <url>
          <loc>https://sea-ai.github.io/templatepy/reference/demo/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-10-29</lastmod>
     </url>
     <url>
          <loc>https://sea-ai.github.io/templatepy/reference/demo/dataclass_demo/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-10-29</lastmod>
     </url>
     <url>
          <loc>https://sea-ai.github.io/templatepy/reference/demo/pydantic_demo/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-10-29</lastmod>
     </url>
     <url>
          <loc>https://sea-ai.github.io/templatepy/reference/demo/rich_demo/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-10-29</lastmod>
     </url>
 </urlset>
