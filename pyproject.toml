@@ -106,4 +106,4 @@ disable = [
 ]
 
 [tool.uv]
-constraint-dependencies = ["certifi>=2026.10.19"]  # SEA-1556
+constraint-dependencies = ["certifi>=2026.10.23"]  # SEA-1556
