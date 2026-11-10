@@ -134,7 +134,9 @@ jobs:
       - ruff-format
       # - pylint
     runs-on: ubuntu-latest
-    if: ${{ needs.changed-files.outputs.changed_files != '' || needs.changed-files.outputs.deps_changed == 'true' }}
+    if: >-
+      !cancelled() && !failure() &&
+      (needs.changed-files.outputs.changed_files != '' || needs.changed-files.outputs.deps_changed == 'true')
     steps:
       - name: 🔄 Restore repository from cache
         uses: actions/cache@v6
