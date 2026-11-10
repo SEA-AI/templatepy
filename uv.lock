@@ -530,26 +530,8 @@ wheels = [
 
 [[package]]
 name = "gitpython"
-version = "3.1.44"
-source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version < '3.11'",
-]
-dependencies = [
-    { name = "gitdb" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/c0/89/37df0b71473153574a5cdef8f242de422a0f5d26d7a9e231e6f169b4ad14/gitpython-3.1.44.tar.gz", hash = "sha256:c87e30b26253bf5418b01b0660f818967f3c503193838337fe5e573331249269", size = 214196, upload-time = "2025-01-02T07:32:43.59Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/1d/9a/4114a9057db2f1462d5c8f8390ab7383925fe1ac012eaa42402ad65c2963/GitPython-3.1.44-py3-none-any.whl", hash = "sha256:9e0e10cda9bed1ee64bc9a6de50e7e38a9c9943241cd7f585f6df3ed28011110", size = 207599, upload-time = "2025-01-02T07:32:40.731Z" },
-]
-
-[[package]]
-name = "gitpython"
 version = "3.2.1"
 source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version >= '3.11'",
-]
 dependencies = [
     { name = "gitdb" },
 ]
@@ -1192,8 +1174,7 @@ name = "mkdocs-git-committers-plugin-2"
 version = "2.5.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "gitpython", version = "3.1.44", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
-    { name = "gitpython", version = "3.2.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
+    { name = "gitpython" },
     { name = "mkdocs" },
     { name = "requests", version = "2.32.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
     { name = "requests", version = "2.34.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
@@ -1209,8 +1190,7 @@ version = "1.4.5"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "babel" },
-    { name = "gitpython", version = "3.1.44", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
-    { name = "gitpython", version = "3.2.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
+    { name = "gitpython" },
     { name = "mkdocs" },
     { name = "pytz" },
 ]
@@ -1289,7 +1269,7 @@ wheels = [
 
 [package.optional-dependencies]
 git = [
-    { name = "gitpython", version = "3.2.1", source = { registry = "https://pypi.org/simple" } },
+    { name = "gitpython" },
     { name = "mkdocs-git-committers-plugin-2" },
     { name = "mkdocs-git-revision-date-localized-plugin" },
 ]
