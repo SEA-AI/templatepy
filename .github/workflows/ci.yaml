@@ -30,6 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       changed_files: ${{ steps.changed-python-files.outputs.all_changed_files }}
+      deps_changed: ${{ steps.changed-dep-files.outputs.any_changed }}
     steps:
       - name: 🔄 Restore repository from cache
         uses: actions/cache@v6
@@ -44,6 +45,16 @@ jobs:
           files: |
             **/*.py
             **/*.pyi
+
+      - name: 🔍 Get changed dependency files
+        id: changed-dep-files
+        uses: tj-actions/changed-files@v47
+        with:
+          files: |
+            uv.lock
+            pyproject.toml
+            .python-version
+            .github/workflows/**
 
   ruff-linter:
     needs: changed-files
@@ -123,7 +134,7 @@ jobs:
       - ruff-format
       # - pylint
     runs-on: ubuntu-latest
-    if: ${{ needs.changed-files.outputs.changed_files != '' }}
+    if: ${{ needs.changed-files.outputs.changed_files != '' || needs.changed-files.outputs.deps_changed == 'true' }}
     steps:
       - name: 🔄 Restore repository from cache
         uses: actions/cache@v6
