@@ -59,7 +59,7 @@ jobs:
   ruff-linter:
     needs: changed-files
     runs-on: ubuntu-latest
-    if: ${{ needs.changed-files.outputs.changed_files != '' }}
+    if: ${{ needs.changed-files.outputs.changed_files != '' || needs.changed-files.outputs.deps_changed == 'true' }}
     permissions:
       contents: read
       pull-requests: write
@@ -71,15 +71,15 @@ jobs:
           key: repo-${{ github.sha }}
 
       - uses: astral-sh/ruff-action@v4.1.0
-        name: ✨ Lint with Ruff (only changed files)
+        name: ✨ Lint with Ruff
         with:
           version: "latest"
-          src: ${{ needs.changed-files.outputs.changed_files }}
+          src: ${{ needs.changed-files.outputs.changed_files || '.' }}
 
   ruff-format:
     needs: changed-files
     runs-on: ubuntu-latest
-    if: ${{ needs.changed-files.outputs.changed_files != '' }}
+    if: ${{ needs.changed-files.outputs.changed_files != '' || needs.changed-files.outputs.deps_changed == 'true' }}
     permissions:
       contents: read
       pull-requests: write
@@ -91,10 +91,10 @@ jobs:
           key: repo-${{ github.sha }}
 
       - uses: astral-sh/ruff-action@v4.1.0
-        name: 📝 Format with Ruff (only changed files)
+        name: 📝 Format with Ruff
         with:
           version: "latest"
-          src: ${{ needs.changed-files.outputs.changed_files }}
+          src: ${{ needs.changed-files.outputs.changed_files || '.' }}
           args: "format --diff"
 
   # pylint:
@@ -134,9 +134,7 @@ jobs:
       - ruff-format
       # - pylint
     runs-on: ubuntu-latest
-    if: >-
-      !cancelled() && !failure() &&
-      (needs.changed-files.outputs.changed_files != '' || needs.changed-files.outputs.deps_changed == 'true')
+    if: ${{ needs.changed-files.outputs.changed_files != '' || needs.changed-files.outputs.deps_changed == 'true' }}
     steps:
       - name: 🔄 Restore repository from cache
         uses: actions/cache@v6
