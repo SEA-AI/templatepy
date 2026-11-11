@@ -25,12 +25,15 @@ jobs:
           path: . # Cache the entire repo
           key: repo-${{ github.sha }}
 
-  changed-files:
+  changes:
     needs: checkout
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
     outputs:
-      changed_files: ${{ steps.changed-python-files.outputs.all_changed_files }}
-      deps_changed: ${{ steps.changed-dep-files.outputs.any_changed }}
+      python: ${{ steps.filter.outputs.python }}
+      python_files: ${{ steps.filter.outputs.python_files }}
+      deps: ${{ steps.filter.outputs.deps }}
     steps:
       - name: 🔄 Restore repository from cache
         uses: actions/cache@v6
@@ -38,28 +41,25 @@ jobs:
           path: .
           key: repo-${{ github.sha }}
 
-      - name: 🔍 Get changed files
-        id: changed-python-files
-        uses: tj-actions/changed-files@v47
+      - name: 🔍 Detect changed paths
+        uses: dorny/paths-filter@v4.0.3
+        id: filter
         with:
-          files: |
-            **/*.py
-            **/*.pyi
-
-      - name: 🔍 Get changed dependency files
-        id: changed-dep-files
-        uses: tj-actions/changed-files@v47
-        with:
-          files: |
-            uv.lock
-            pyproject.toml
-            .python-version
-            .github/workflows/**
+          list-files: shell
+          filters: |
+            python:
+              - '**/*.py'
+              - '**/*.pyi'
+            deps:
+              - 'uv.lock'
+              - 'pyproject.toml'
+              - '.python-version'
+              - '.github/workflows/**'
 
   ruff-linter:
-    needs: changed-files
+    needs: changes
     runs-on: ubuntu-latest
-    if: ${{ needs.changed-files.outputs.changed_files != '' || needs.changed-files.outputs.deps_changed == 'true' }}
+    if: ${{ needs.changes.outputs.python == 'true' || needs.changes.outputs.deps == 'true' }}
     permissions:
       contents: read
       pull-requests: write
@@ -74,12 +74,12 @@ jobs:
         name: ✨ Lint with Ruff
         with:
           version: "latest"
-          src: ${{ needs.changed-files.outputs.changed_files || '.' }}
+          src: ${{ needs.changes.outputs.python_files || '.' }}
 
   ruff-format:
-    needs: changed-files
+    needs: changes
     runs-on: ubuntu-latest
-    if: ${{ needs.changed-files.outputs.changed_files != '' || needs.changed-files.outputs.deps_changed == 'true' }}
+    if: ${{ needs.changes.outputs.python == 'true' || needs.changes.outputs.deps == 'true' }}
     permissions:
       contents: read
       pull-requests: write
@@ -94,13 +94,13 @@ jobs:
         name: 📝 Format with Ruff
         with:
           version: "latest"
-          src: ${{ needs.changed-files.outputs.changed_files || '.' }}
+          src: ${{ needs.changes.outputs.python_files || '.' }}
           args: "format --diff"
 
   # pylint:
-  #   needs: changed-files
+  #   needs: changes
   #   runs-on: ubuntu-latest
-  #   if: ${{ needs.changed-files.outputs.changed_files != '' }}
+  #   if: ${{ needs.changes.outputs.python == 'true' }}
   #   permissions:
   #     contents: read
   #     pull-requests: write
@@ -124,17 +124,17 @@ jobs:
   #       run: uv pip install pylint
 
   #     - name: 🔍 Run Pylint
-  #       run: uv run pylint ${{ needs.changed-files.outputs.changed_files }}
+  #       run: uv run pylint ${{ needs.changes.outputs.python_files }}
 
   sonarqube:
     needs:
       - checkout # Needs full repo
-      - changed-files
+      - changes
       - ruff-linter
       - ruff-format
       # - pylint
     runs-on: ubuntu-latest
-    if: ${{ needs.changed-files.outputs.changed_files != '' || needs.changed-files.outputs.deps_changed == 'true' }}
+    if: ${{ needs.changes.outputs.python == 'true' || needs.changes.outputs.deps == 'true' }}
     steps:
       - name: 🔄 Restore repository from cache
         uses: actions/cache@v6
