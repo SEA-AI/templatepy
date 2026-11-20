@@ -146,7 +146,7 @@ jobs:
         uses: AnimMouse/setup-ffmpeg@v1
 
       - name: 🛠️ Install the latest version of uv and set the python version
-        uses: astral-sh/setup-uv@v10.3.3
+        uses: astral-sh/setup-uv@v10.4.0
         with:
           enable-cache: true
           cache-dependency-glob: "uv.lock"
